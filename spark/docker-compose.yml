@@ -1,0 +1,104 @@
+services:
+  spark-master:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    hostname: coms-spark-master
+    container_name: coms-spark-master
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    user: root
+    ports:
+      - '8080:8080'
+      - '7077:7077'
+      - '4040:4040'
+    volumes:
+      - ./../scripts:/opt/bitnami/spark/scripts
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+    networks:
+      - coms-network
+
+  spark-worker1:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    hostname: coms-spark-worker1
+    container_name: coms-spark-worker1
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    user: root
+    ports:
+      - '8082:8080'
+      - '4041:4040'
+    depends_on:
+      spark-master:
+        condition: service_healthy
+    networks:
+      - coms-network
+
+  spark-worker2:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    hostname: coms-spark-worker2
+    container_name: coms-spark-worker2
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    user: root
+    ports:
+      - '8084:8080'
+      - '4042:4040'
+    depends_on:
+      spark-master:
+        condition: service_healthy
+    networks:
+      - coms-network
+
+  spark-notebook:
+    image: jupyter/pyspark-notebook:spark-3.5.0
+    hostname: coms-spark-notebook
+    container_name: coms-spark-notebook
+    environment:
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - '8888:8888'
+    volumes:
+      - ./../scripts:/home/jovyan/work
+    depends_on:
+      spark-master:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - coms-network
+
+networks:
+  coms-network:
+    name: coms-network
+    external: true

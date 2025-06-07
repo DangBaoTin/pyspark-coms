@@ -45,7 +45,7 @@ Raw input files will be stored in the `/raw/` directory as CSV files.
 | discount         | double   | Discount applied                |
 
 ### 4. `payments.csv`
-| Column Name     | Type     | Description                      |
+| Column Name      | Type     | Description                      |
 |------------------|----------|----------------------------------|
 | payment_id       | string   | Unique payment ID                |
 | order_id         | string   | Reference to order               |
@@ -119,3 +119,27 @@ All outputs stored in `/curated/` as Parquet format:
 - No nulls in primary keys
 - Amounts and dates must be valid
 - Unit tests with PyTest or Unittest
+
+# Install and activate virtual environment
+- Init virt env:
+```bash
+python3 -m venv venv
+virtualenv -p /Library/Frameworks/Python.framework/Versions/3.9/bin/python3.9 venv
+```
+- Activate virtual environment:
+```bash
+source venv/bin/activate
+```
+- Install `requirements.txt` for the required libraries:
+```bash
+pip install -r requirements.txt
+```
+- To delete any unnecessary libraries:
+```bash
+pip uninstall <package-name>
+```
+- To deactivate virtual environment:
+```bash
+deactivate
+rm -rf venv
+```
