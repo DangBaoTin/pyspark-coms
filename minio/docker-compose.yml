@@ -15,6 +15,6 @@ services:
     networks:
       - coms-network
 networks:
-  dbms-network:
+  coms-network:
     name: coms-network
     external: true

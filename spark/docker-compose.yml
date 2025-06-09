@@ -2,7 +2,7 @@ services:
   spark-master:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./Dockerfile
     hostname: coms-spark-master
     container_name: coms-spark-master
     environment:
