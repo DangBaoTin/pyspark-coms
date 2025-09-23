@@ -1,0 +1,9 @@
+employee_id,full_name,email,role,team,contact_number,start_date
+EMP001,Nguyen Van An,dangbaotin05062003@gmail.com,Data Engineer,Tech Team,0901234567,2023-05-15
+EMP002,Le Thi Binh,binh.le@yourcompany.com,DevOps Engineer,Tech Team,0912345678,2022-11-20
+EMP003,Tran Van Cuong,cuong.tran@yourcompany.com,Project Manager,Management,0987654321,2021-02-10
+EMP004,Pham Thi Dung,dung.pham@yourcompany.com,Business Analyst,Product,0978123456,2023-08-01
+EMP005,Hoang Van E,e.hoang@yourcompany.com,QA Tester,Tech Team,0934567890,2024-01-22
+EMP006,Do Thi Giang,giang.do@yourcompany.com,HR Manager,Human Resources,0945678901,2020-07-30
+EMP007,Vu Van Hung,tindang05062003@gmail.com,Software Engineer,Tech Team,0967890123,2024-06-03
+EMP008,Mai Thi Kim,kim.mai@yourcompany.com,UI/UX Designer,Product,0923456789,2023-03-12

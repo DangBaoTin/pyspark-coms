@@ -1,11 +1,11 @@
 customer_id,full_name,email,signup_date,phone,region
-CUST1000,Customer 0,customer0@example.com,2025-04-12,0900770487,North
-CUST1001,Customer 1,customer1@example.com,2025-04-13,0900216739,West
+CUST1000,Customer 0,dangbaotin05062003@gmail.com,2025-04-12,0900770487,North
+CUST1001,Customer 1,dangbaotin05062003@gmail.com,2025-04-13,0900216739,West
 CUST1002,Customer 2,customer2@example.com,2025-04-14,0900126225,North
 CUST1003,Customer 3,customer3@example.com,2025-04-15,0900877572,North
 CUST1004,Customer 4,customer4@example.com,2025-04-16,0900388389,North
 CUST1005,Customer 5,customer5@example.com,2025-04-17,0900356787,South
-CUST1006,Customer 6,customer6@example.com,2025-04-18,0900334053,South
+CUST1006,Customer 6,dangbaotin05062003@gmail.com,2025-04-18,0900334053,South
 CUST1007,Customer 7,customer7@example.com,2025-04-19,0900246316,North
-CUST1008,Customer 8,customer8@example.com,2025-04-20,0900872246,South
-CUST1009,Customer 9,customer9@example.com,2025-04-21,0900207473,West
+CUST1008,Customer 8,dangbaotin05062003@gmail.com,2025-04-20,0900872246,South
+CUST1009,Customer 9,dangbaotin05062003@gmail.com,2025-04-21,0900207473,West
